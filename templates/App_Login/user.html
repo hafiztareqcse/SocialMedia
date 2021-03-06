@@ -1,0 +1,27 @@
+{% extends 'navbar.html' %}
+{% block title_block %} {{ user.user_profile.full_name }} (@{{ user.username }}) {% endblock %}
+{% block css_block %}
+<style>
+
+</style>
+{% endblock %}
+{% block body_block %}
+    <center>
+    <div class="row">
+        <div class="col-sm-4">
+            {% if user.user_profile.profile_pic %}
+        <img src="/media/{{ user.user_name.profile_pic }}" width="250px" height="250px">
+        {% else %}
+        <img src="/media/p.png" width="250px" height="250px" class="rounded-circle">
+        {% endif %}
+        </div>
+    <div class="col-sm-8">
+        <h3>{{ user.username }} &nbsp; <a class="btn btn-light" href="{% url 'App_Login:edit' %}">Edit Profile</a></h3>
+        <br>
+        <h5>{{ user.post.count }} Posts &nbsp; &nbsp; {{ user.follower.count }} Followers &nbsp; &nbsp; {{ user.following.count }} Followings</h5>
+        <br>
+        <h4>{{user.user_name.full_name}}</h4>
+    </div>
+    </div>
+    </center>
+{% endblock %}

@@ -22,17 +22,17 @@
       </li>
         {% if user.user_profile.profile_pic %}
         <li class="nav-item">
-        <a class="navbar-brand" href="#"><img src="/media/{{ user.user_profile.profile_pic }}" width="25px" height="25px"></a>
+        <a class="navbar-brand" href="{% url 'App_Login:profile' %}"><img src="/media/{{ user.user_profile.profile_pic }}" width="25px" height="25px"></a>
       </li>
         {% else %}
         <li class="nav-item">
-        <a class="navbar-brand" href="#"><img src="/media/p.png" width="25px" height="25px" class="rounded-circle"></a>
+        <a class="navbar-brand" href="{% url 'App_Login:profile' %}"><img src="/media/p.png" width="25px" height="25px" class="rounded-circle"></a>
       </li>
         {% endif %}
     </ul>
   </div>
 </nav>
-<div class="container" style="padding-top: 20px">
+<div class="container" style="padding-top: 30px">
     {% block body_block %}
     {% endblock %}
 </div>
