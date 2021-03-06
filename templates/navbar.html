@@ -11,13 +11,26 @@
 {% endblock %}
 </head>
 <body>
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-</nav>
-
-<!-- As a heading -->
-<nav class="navbar navbar-light bg-light">
-  <span class="navbar-brand mb-0 h1">Navbar</span>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="navbar-brand" href="{% url 'App_Posts:home' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="navbar-brand" href="{% url 'App_Login:logout' %}">Logout</a>
+      </li>
+        {% if user.user_profile.profile_pic %}
+        <li class="nav-item">
+        <a class="navbar-brand" href="#"><img src="/media/{{ user.user_profile.profile_pic }}" width="25px" height="25px"></a>
+      </li>
+        {% else %}
+        <li class="nav-item">
+        <a class="navbar-brand" href="#"><img src="/media/p.png" width="25px" height="25px" class="rounded-circle"></a>
+      </li>
+        {% endif %}
+    </ul>
+  </div>
 </nav>
 <div class="container" style="padding-top: 20px">
     {% block body_block %}
