@@ -19,15 +19,15 @@
 {% block body_block %}
     <center>
     <h3>Sign up to see photos.</h3>
-    <div class="sign_up">
+    <div class="log_in">
         <form method="POST">
             {{ form|crispy }}
             {% csrf_token %}
             <button type="submit" style="width: 100%" class="btn btn-primary">Sign up</button>
         </form>
     </div>
-    <div class="log_in">
-        <p>Have an account? <a href="{% url 'App_Login:login' %}">Log in</a></p>
+    <div class="sign_in">
+        <p>Don't have an account? <a href="{% url 'App_Login:sign_up' %}">Sign up</a></p>
     </div>
     </center>
 {% endblock %}
